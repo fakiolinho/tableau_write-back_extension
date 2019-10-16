@@ -21,11 +21,25 @@ var Utils = (function(){
             dataTable.columns().every(function(index) {
             jColumns.push(columns[index].title);
             })
+            // Find non-empty element of first column and copy it to empty ones
             for ( var i = 0; i < rows.length; i ++ )
             {
             var data = {};
             for(var j = 0; j < jColumns.length; j++){
+                if (rows[i][j] != "") {
+                    IntentToSend = rows[i][0] ;
+                }
+            }
+            }
+            // Send the data
+            for ( var i = 0; i < rows.length; i ++ )
+            {
+            for(var j = 0; j < jColumns.length; j++){
+                if (rows[i][j] == "") {
+                    rows[i][j] = IntentToSend ;
+                }
                 data[jColumns[j]] = rows[i][j];
+
             }
             jData.push(data);
             }
