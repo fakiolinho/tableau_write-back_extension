@@ -25,7 +25,7 @@ var Utils = (function(){
             for ( var i = 0; i < rows.length; i ++ )
             {
             for(var j = 0; j < jColumns.length; j++){
-                if (rows[i][j] != "") {
+                if (rows[i][0] != "") {
                     CellToCopyToAllRows = rows[i][0] ;
                 }
             }
