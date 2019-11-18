@@ -21,7 +21,8 @@ var Utils = (function(){
             dataTable.columns().every(function(index) {
             jColumns.push(columns[index].title);
             })
-            // Find non-empty element of first column and copy it to empty ones
+            
+            // Set the Intent for all utterances
             for ( var i = 0; i < rows.length; i ++ )
             {
             for(var j = 0; j < jColumns.length; j++){
@@ -30,6 +31,7 @@ var Utils = (function(){
                 }
             }
             }
+            var CellToCopyToAllRows = prompt("Please enter the intent");
             // Send the data
             for ( var i = 0; i < rows.length; i ++ )
             {
