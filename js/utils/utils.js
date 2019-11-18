@@ -32,6 +32,22 @@ var Utils = (function(){
             }
             }
             var CellToCopyToAllRows = prompt("Please enter the intent");
+
+            if (CellToCopyToAllRows == null)
+            {
+                return true;
+            }
+
+            if (CellToCopyToAllRows == "")
+            {
+                answer = prompt("Send utterances without Intent? If yes, please enter YES and proceed");
+                if (answer != "YES")
+                {
+                    return true;
+                }
+
+            }
+            
             // Send the data
             for ( var i = 0; i < rows.length; i ++ )
             {
