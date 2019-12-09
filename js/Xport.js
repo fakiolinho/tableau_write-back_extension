@@ -320,7 +320,7 @@
         payload.jobId = jobId;
         payload.utterances = utterances;
         payload.intent_name = intent_name;
-
+        console.log(sendJson, payload);
         ajaxRequestContent.data = payload;
         ajaxRequestContent.contentType = 'application/json; charset=UTF-8';
       }
