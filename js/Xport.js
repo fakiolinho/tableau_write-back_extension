@@ -16,7 +16,7 @@
     window.addEventListener("message", receiveMessage, false);
 
     function receiveMessage(event) {
-      console.log('postMessage', event, window.location.origin, window.parent);
+      console.log('postMessage', event, window.location.origin, tableau);
     }
 
     var browser = DevTools.get_browser();
