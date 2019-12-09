@@ -12,6 +12,12 @@
 
   // Use the jQuery document ready signal to know when everything has been initialized
   $(document).ready(function () {
+    // Listen for event sent by parent host app
+    window.addEventListener("message", receiveMessage, false);
+
+    function receiveMessage(event) {
+      console.log('postMessage', event);
+    }
 
     var browser = DevTools.get_browser();
     console.log("Tableau Browser: "+ browser.name +" "+browser.version);
