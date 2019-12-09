@@ -16,7 +16,7 @@
     window.addEventListener("message", receiveMessage, false);
 
     function receiveMessage(event) {
-      console.log('postMessage', event, window.location.origin);
+      console.log('postMessage', event, window.location.origin, window.parent, window.parent.window.location);
     }
 
     var browser = DevTools.get_browser();
