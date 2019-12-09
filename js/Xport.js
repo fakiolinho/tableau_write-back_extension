@@ -278,7 +278,7 @@
         success : function (data, status, xhr) {
           if(data.error !=undefined){
             $('#overlay-message').text("Post Error. Check console");
-            $('#overlay').fadeIn().delay(2000).fadeOut();;
+            $('#overlay').fadeIn().delay(2000).fadeOut();
             console.error("AJAX POST ERROR");
             console.error(status);
             console.error(data);
