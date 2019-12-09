@@ -308,6 +308,8 @@
 
         try {
           console.log(window.parent.sessionStorage.getItem('amo'), window.sessionStorage.getItem('amo'));
+          console.log('iframe read data-id', window.parent.document.getElementById('tableau').getAttribute('data-id'));
+          console.log('iframe read data-id', document.getElementById('tableau').getAttribute('data-id'));
           jobId = JSON.parse(window.parent.sessionStorage.getItem('amo')).jobId;
         } catch (err) {
           console.log(err);
