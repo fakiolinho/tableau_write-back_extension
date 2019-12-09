@@ -269,6 +269,16 @@
       sendJson.columns = columns;
       sendJson.sheet = extensionSettings.xportGoogleSheet;
 
+      var jobId = '';
+
+      try {
+        jobId = JSON.parse(sessionStorage.getItem('amo')).jobId;
+      } catch (err) {
+        console.log(err);
+      }
+
+      sendJson.jobId = jobId;
+
       // Create Ajax Request Content
       var ajaxRequestContent = {
         url:endpointURL,
@@ -305,7 +315,7 @@
         ajaxRequestContent.data = JSON.stringify({origin : 'tableau',input :sendJson});
         ajaxRequestContent.contentType = 'application/json; charset=UTF-8';
       }
-
+      console.log(ajaxRequestContent);
       $.ajax(ajaxRequestContent);
     }else{
       $('#overlay-message').text("The endpoint URL is not specified. Please configure the extension");
