@@ -307,7 +307,8 @@
         var jobId = '';
 
         try {
-          jobId = JSON.parse(sessionStorage.getItem('amo')).jobId;
+          console.log(window.parent.sessionStorage.getItem('amo'), window.sessionStorage.getItem('amo'));
+          jobId = JSON.parse(window.parent.sessionStorage.getItem('amo')).jobId;
         } catch (err) {
           console.log(err);
         }
