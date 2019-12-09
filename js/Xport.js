@@ -269,14 +269,6 @@
       sendJson.columns = columns;
       sendJson.sheet = extensionSettings.xportGoogleSheet;
 
-      var jobId = '';
-
-      try {
-        jobId = JSON.parse(sessionStorage.getItem('amo')).jobId;
-      } catch (err) {
-        console.log(err);
-      }
-
       sendJson.jobId = jobId;
 
       // Create Ajax Request Content
@@ -312,7 +304,24 @@
       ajaxRequestContent.data = {origin : 'tableau', input :JSON.stringify(sendJson)};
 
       if(extensionSettings.exportToSpreadsheet === 'false'){
-        ajaxRequestContent.data = JSON.stringify({origin : 'tableau',input :sendJson});
+        // Prepare payload to send over to API
+        var payload = {};
+        var jobId = '';
+
+        try {
+          jobId = JSON.parse(sessionStorage.getItem('amo')).jobId;
+        } catch (err) {
+          console.log(err);
+        }
+
+        var utterances = sendJson.data.map(el => el.Utterance);
+        var intent_name = sendJson.data.length > 0 ? sendJson.data[0].IntentName : '';
+
+        payload.jobId = jobId;
+        payload.utterances = utterances;
+        payload.intent_name = intent_name;
+
+        ajaxRequestContent.data = payload;
         ajaxRequestContent.contentType = 'application/json; charset=UTF-8';
       }
       console.log(ajaxRequestContent);
