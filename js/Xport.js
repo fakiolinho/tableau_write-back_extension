@@ -277,7 +277,7 @@
         success : function (data, status, xhr) {
           if(data.error !=undefined){
             $('#overlay-message').text("Post Error. Check console");
-            $('#overlay').fadeIn().delay(2000).fadeOut();;
+            $('#overlay').fadeIn().delay(2000).fadeOut();
             console.error("AJAX POST ERROR");
             console.error(status);
             console.error(data);
@@ -302,8 +302,24 @@
       ajaxRequestContent.data = {origin : 'tableau', input :JSON.stringify(sendJson)};
 
       if(extensionSettings.exportToSpreadsheet === 'false'){
-        console.log(sendJson);
-        ajaxRequestContent.data = JSON.stringify({origin : 'tableau',input :sendJson});
+        // Prepare payload to send over to API
+        var payload = {};
+        var jobId = '';
+
+        try {
+          jobId = JSON.parse(sessionStorage.getItem('amo')).jobId;
+        } catch (err) {
+          console.log(err);
+        }
+
+        var utterances = sendJson.data.map(el => el.Utterance);
+        var intent_name = sendJson.data.length > 0 ? sendJson.data[0]['Intent Name'] : '';
+
+        payload.jobId = jobId;
+        payload.utterances = utterances;
+        payload.intent_name = intent_name;
+        console.log(sendJson, payload);
+        ajaxRequestContent.data = payload;
         ajaxRequestContent.contentType = 'application/json; charset=UTF-8';
       }
       console.log(ajaxRequestContent);
