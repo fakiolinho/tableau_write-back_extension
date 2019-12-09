@@ -307,7 +307,6 @@
         var jobId = '';
 
         try {
-          console.log('iframe read data-id', document.getElementById('tableau').getAttribute('data-id'));
           console.log('iframe read data-id', window.parent.document.getElementById('tableau').getAttribute('data-id'));
           jobId = JSON.parse(window.parent.sessionStorage.getItem('amo')).jobId;
         } catch (err) {
