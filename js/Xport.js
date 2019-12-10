@@ -326,7 +326,7 @@
         payload.utterances = utterances;
         payload.intent_name = intent_name;
         console.log(sendJson, payload);
-        ajaxRequestContent.data = payload;
+        ajaxRequestContent.data = JSON.stringify(payload);
         ajaxRequestContent.contentType = 'application/json; charset=UTF-8';
       }
       console.log(ajaxRequestContent);
