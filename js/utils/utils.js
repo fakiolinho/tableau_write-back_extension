@@ -31,22 +31,7 @@ var Utils = (function(){
                 }
             }
             }
-
-            var CellToCopyToAllRows = '';
-            console.log(window.swal, swal);
-            window.swal({
-                text: 'Please enter the intent',
-                content: "input",
-                button: {
-                    text: "Submit",
-                    closeModal: true,
-                },
-            })
-            .then(intent => {
-                CellToCopyToAllRows = intent;
-            });
-
-            // var CellToCopyToAllRows = prompt("Please enter the intent");
+            var CellToCopyToAllRows = prompt("Please enter the intent");
 
             if (CellToCopyToAllRows == null)
             {

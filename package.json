@@ -8,8 +8,7 @@
   },
   "author": "xpandit",
   "dependencies": {
-    "http-server": "^0.11.1",
-    "sweetalert": "^2.1.2"
+    "http-server": "^0.11.1"
   },
   "devDependencies": {
     "semistandard": "^11.0.0"
