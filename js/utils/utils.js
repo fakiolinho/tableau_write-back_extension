@@ -1,5 +1,3 @@
-const swal =  require('sweetalert');
-
 var Utils = (function(){
 
     return {
@@ -8,7 +6,7 @@ var Utils = (function(){
             $(`<button type='button' class='btn btn-default btn-block'>
               ${buttonTitle}
             </button>`);
-        
+
             return button;
         },
 
@@ -23,7 +21,7 @@ var Utils = (function(){
             dataTable.columns().every(function(index) {
             jColumns.push(columns[index].title);
             })
-            
+
             // Set the Intent for all utterances
             for ( var i = 0; i < rows.length; i ++ )
             {
@@ -64,7 +62,7 @@ var Utils = (function(){
                 }
 
             }
-            
+
             // Send the data
             for ( var i = 0; i < rows.length; i ++ )
             {
@@ -237,5 +235,5 @@ var Utils = (function(){
             }
         }
     }
-   
+
    }())
