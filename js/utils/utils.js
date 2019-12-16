@@ -1,3 +1,5 @@
+const swal =  require('sweetalert');
+
 var Utils = (function(){
 
     return {
@@ -34,7 +36,7 @@ var Utils = (function(){
 
             var CellToCopyToAllRows = '';
 
-            swal({
+            window.swal({
                 text: 'Please enter the intent',
                 content: "input",
                 button: {
