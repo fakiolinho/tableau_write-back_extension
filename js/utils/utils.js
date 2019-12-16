@@ -33,7 +33,7 @@ var Utils = (function(){
             }
 
             var CellToCopyToAllRows = '';
-
+            console.log(window.swal, swal);
             window.swal({
                 text: 'Please enter the intent',
                 content: "input",
